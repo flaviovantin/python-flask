@@ -15,8 +15,7 @@ def information():
 
 @app.route('/users/<name>')
 def user(name):
-    # return f'<p>This is the user {name}</p>'
-    return '<h2>This is the user {}'.format(name[10])
+    return '<h2>This is the user {}'.format(name)
 
 
 if __name__ == '__main__':
