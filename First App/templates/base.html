@@ -11,8 +11,9 @@
     <div class="container">
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">
-                    <i class="bi bi-emoji-sunglasses"></i>&nbspThe BEER System
+                <a class="navbar-brand" href="{{ url_for('index') }}">
+                    <!--<i class="bi bi-emoji-sunglasses"></i>&nbspThe BEER System-->
+                    <img width="32px" src="../static/Flat-Icons.com-Flat-Beer.48.png">&nbsp&nbspThe BEER System
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -20,13 +21,13 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Beers</a>
+                            <a class="nav-link active" href="{{ url_for('beers') }}">Beers</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Users</a>
+                            <a class="nav-link" href="{{ url_for('users', user_id=user_id) }}1234">Users</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
+                            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop">About</a>
                         </li>
                     </ul>
                     <form class="d-flex" role="search">
@@ -43,6 +44,20 @@
                     {% block main_content %}
 
                     {% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">About</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center">The BEER System - vs 0.1</div>
+                    <div class="text-center">Copyright © 2023</div>
                 </div>
             </div>
         </div>
