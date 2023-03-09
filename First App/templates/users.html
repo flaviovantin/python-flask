@@ -1,12 +1,33 @@
 {% extends "base.html" %}
 
 {% block main_content %}
-<ul class="list-group list-group-flush">
-    <li class="list-group-item">{{users[0].first_name}} {{users[0].last_name}}</li>
+<div class="container" xmlns="http://www.w3.org/1999/html">
+    <form action="{{ url_for('add_user') }}">
+        <div class="mb-3">
+            <label for="firstName" class="form-label">First name</label>
+            <input type="text" class="form-control" id="firstName" name="firstName">
+        </div>
+        <div class="mb-3">
+            <label for="lastName" class="form-label">Last name</label>
+            <input type="text" class="form-control" id="lastName" name="lastName">
+        </div>
+        <div class="mb-3">
+            <label for="emailAddress" class="form-label">Email</label>
+            <input type="email" class="form-control" id="emailAddress" name="emailAddress" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+    <hr/>
+    <div class="row">&nbsp</div>
+    <ul class="list-group list-group-flush">
+    <li class="list-group-item">User 1</li>
     <li class="list-group-item">User 2</li>
     <li class="list-group-item">User 3</li>
     <li class="list-group-item">User 4</li>
-    <li class="list-group-item">User 5</li>
-    <li class="list-group-item">User 6</li>
+    {% if users %}
+    <li class="list-group-item">{{users[0].id}} | {{users[0].first_name}} {{users[0].last_name}} | {{users[0].email_address}}</li>
+    {% endif %}
 </ul>
+</div>
 {% endblock %}

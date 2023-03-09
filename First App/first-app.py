@@ -1,4 +1,5 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
+import random
 
 app = Flask(__name__)
 
@@ -13,16 +14,20 @@ def beers():
     return render_template('beers.html')
 
 
-@app.route('/users/<user_id>')
-def users(user_id):
-    users = [
-        {
-            'id': user_id,
-            'first_name': 'Lord',
-            'last_name': 'Tobias I',
-            'age': 15
-        }
-    ]
+@app.route('/users')
+def users():
+    return render_template('users.html')
+
+
+@app.route('/add_user')
+def add_user():
+    users = list()
+    users.append({
+        'id': random.randint(1000, 9999),
+        'first_name': request.args.get('firstName'),
+        'last_name': request.args.get('lastName'),
+        'email_address': request.args.get('emailAddress')
+    })
     return render_template('users.html', users=users)
 
 
